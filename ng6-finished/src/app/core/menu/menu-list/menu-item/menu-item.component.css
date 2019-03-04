@@ -1,0 +1,4 @@
+.menu-item.selected {
+    text-decoration: underline;
+    font-weight: bold;
+}

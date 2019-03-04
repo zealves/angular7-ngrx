@@ -1,0 +1,13 @@
+<div
+    class="menu"
+    [ngClass]="{'collapsed': collapseMenu}">
+    MenuList
+    <button (click)="toggleMenu()">{{ collapseMenu ? 'white' : 'black' }} </button>
+    <ul>
+        <app-menu-item
+            *ngFor="let item of menuItems; let i = index"
+            [item]="item"
+            [index]="i">
+        </app-menu-item>
+    </ul>
+</div>
