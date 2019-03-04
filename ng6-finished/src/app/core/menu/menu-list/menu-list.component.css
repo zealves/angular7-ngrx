@@ -1,12 +1,9 @@
 .menu {
-    background-color: aquamarine;
-    color: black;
     float: left;
     width: 40%;
 }
 
 .menu.collapsed {
-    background-color: black;
     color: white;
     width: 20%; 
 }

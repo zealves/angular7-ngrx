@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { StoreModule } from '@ngrx/store';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MenuComponent } from './menu.component';
 import { MenuListComponent } from './menu-list/menu-list.component';
@@ -8,6 +8,8 @@ import { MenuItemComponent } from './menu-list/menu-item/menu-item.component';
 import { MenuRoutingModule } from './menu-routting.module';
 //import { AuthRoutingModule } from './auth-routing.module';
 import { menuReducer } from './store/menu.reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { MenuEffects } from './store/menu.effects';
 
 @NgModule({
     declarations: [
@@ -17,7 +19,9 @@ import { menuReducer } from './store/menu.reducers';
     ],
     imports: [
         CommonModule,
-        MenuRoutingModule
+        MenuRoutingModule,
+        BrowserAnimationsModule,
+        EffectsModule.forFeature([MenuEffects])
     ],
     exports: [
         MenuComponent,

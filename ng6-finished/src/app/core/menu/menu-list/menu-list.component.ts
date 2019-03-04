@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component,OnInit } from '@angular/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 import { Store } from '@ngrx/store';
 
 import * as fromApp from '../../../store/app.reducers';
@@ -8,7 +8,25 @@ import * as MenuActions from '../store/menu.actions';
 @Component({
     selector: 'app-menu-list',
     templateUrl: './menu-list.component.html',
-    styleUrls: ['./menu-list.component.css']
+    styleUrls: ['./menu-list.component.css'],
+    animations: [
+        trigger('menuAnimation', [
+            state('expanded', style({
+                'background-color': 'white',
+                'color': 'black'
+            })),
+            state('collapsed', style({
+                'background-color': 'black',
+                'color': 'white'
+            })),
+            transition('expanded => collapsed', [
+                animate('3s')
+            ]),
+            transition('collapsed => expanded', [
+                animate('2s')
+            ]),
+        ]),
+    ],
 })
 export class MenuListComponent implements OnInit {
     collapseMenu: boolean = false
@@ -39,6 +57,8 @@ export class MenuListComponent implements OnInit {
     constructor(private store: Store<fromApp.AppState>) { }
 
     ngOnInit() {
+
+
         const x = this.store.select('menu').subscribe(
             data => {
                 this.collapseMenu = data.collapse

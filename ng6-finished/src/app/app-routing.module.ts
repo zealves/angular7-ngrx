@@ -7,7 +7,8 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'recipes', loadChildren: './recipes/recipes.module#RecipesModule'},
   { path: 'shopping-list', loadChildren: './shopping-list/shopping-list.module#ShoppingListModule' },
-  { path: 'contacts', loadChildren: './contacts/contacts.module#ContactsModule' }
+  { path: 'contacts', loadChildren: './contacts/contacts.module#ContactsModule' },
+  { path: '**', redirectTo: '', pathMatch: 'full'}
 ];
 
 @NgModule({

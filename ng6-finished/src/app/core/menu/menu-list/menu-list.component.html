@@ -1,6 +1,7 @@
 <div
     class="menu"
-    [ngClass]="{'collapsed': collapseMenu}">
+    [ngClass]="{'collapsed': collapseMenu}"
+    [@menuAnimation]="collapseMenu ? 'collapsed' : 'expanded'">
     MenuList
     <button (click)="toggleMenu()">{{ collapseMenu ? 'white' : 'black' }} </button>
     <ul>
